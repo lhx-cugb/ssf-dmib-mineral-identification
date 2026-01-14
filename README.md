@@ -1,16 +1,16 @@
 ## Robust Multimodal Mineral Identification based on a Parameter-Efficient Method
 
 This repository is the open-source implementation of the paper "Robust Multimodal Mineral Identification based on a Parameter-Efficient Method".
-This project proposes a multimodal mineral identification framework that integrates Scale and Shift Feature Adaptation (SSF) and Dynamic Multimodal Information Bottleneck (DMIB). It addresses issues such as "modality missing" and "modality data errors" in practical geological exploration scenarios. While ensuring identification accuracy, it only introduces a 13.8% increase in parameter volume, making it highly practical and scalable.
+This project proposes a multimodal mineral identification framework that integrates Scale and Shift Feature Adaptation (SSF) and Dynamic Multimodal Information Bottleneck (DMIB). It addresses issues such as "modality missing" and "modality data errors" in practical geological scenarios. While ensuring identification accuracy, it only introduces a 13.8% increase in parameter volume, making it highly practical and scalable.
 
 
 
 ## 1.Repo Structure
 
-- `SSF_Net_v7_error_3mo_v4.py`: Training script for SSF+DMIB with 3 modalities (images + 3D modality tokens) (including data loading, training, validation, and checkpoint saving)
+- `SSF_Net_v7_error_3mo_v4.py`: Training script for SSF+DMIB with 3 modalities (images + hardness, luster, streak), including data loading, training, validation, and checkpoint saving
 - `SSF_Net_v7_error_2mo_12_v4_v3.py / _13_ / _23_` : Training scripts for 2-modality combinations
 - `SSF_Net_v7_error_1mo_1_v4_v3.py / _2_ / _3_`: Training scripts for 1-modality combination
-- `SSF_Net_v7_error_0mo_v4_v3.py`: Training scripts for 0-modality / single-modality (with only the image branch as the main component)
+- `SSF_Net_v7_error_0mo_v4_v3.py`: Training scripts for 0-modality / single-modality (with only  image)
 - `loss_modules.py`: **Collection of loss functions** (e.g., `logit_DKD`, `DKDloss`, `RKDLoss`, `MMD`, `CMD`, `Focal_loss`, etc.)
 - `meta_encoder.py`: **Modality encoders / residual layers**, etc. (e.g., `ResNormLayer`, `SharedEncoder`, `ResidualAE`)
 - `requirements.txt`: Development Environment Dependencies
@@ -112,7 +112,9 @@ python SSF_Net_v7_error_2mo_12_v4_v3.py
 
 ## 5.Test set example
 
-We have provided test set files that can be directly used for testing. You can modify the code in this repository to complete the test verification:[TestDataSet](https://1drv.ms/f/c/c52c056caa61004f/IgAtIXZcc9CmT5bNXYT5PywAAW7vvjuHqkO_66bsIOIZ72s?e=cgvEkH)
+We have provided test set files that can be directly used for testing. You can modify the code in this repository to complete the test verification:[TestDataSet(OneDrive)](https://1drv.ms/f/c/c52c056caa61004f/IgAtIXZcc9CmT5bNXYT5PywAAW7vvjuHqkO_66bsIOIZ72s?e=cgvEkH) / [TestDataSet(BaiDu)](https://pan.baidu.com/s/1gMKJ6UFfDmrZPeffiBuN4A?pwd=6335 )
+
+
 
 - The test set is in tar compressed format. After downloading, you can decompress and use it with the command `tar -xf filename.tar`. If you need to adjust the test logic, you can modify the path/parameter configuration of the corresponding test scripts in the repository.
 
